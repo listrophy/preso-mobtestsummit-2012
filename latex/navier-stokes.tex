@@ -1,5 +1,7 @@
 \documentclass{article}
-\usepackage{amssymb,amsmath}
+\usepackage{amssymb,amsmath,nopageno,bigints,verbatim}
+
+\pagestyle{plain}
 
 \newcommand{\ilessv}[1]{\left(\mathbf{#1_i} - \mathbf{#1_v}\right)}
 \newcommand{\xform}[1]{#1_x\ilessv{E} + #1_y\ilessv{F} + #1_z\ilessv{G}}
@@ -7,30 +9,76 @@
 
 \newcount\colveccount
 \newcommand*\colvec[1]{
-        \global\colveccount#1
-        \begin{bmatrix}
-        \colvecnext
-}
-\def\colvecnext#1{
-        #1
-        \global\advance\colveccount-1
-        \ifnum\colveccount>0
-                \\
-                \expandafter\colvecnext
-        \else
-                \end{bmatrix}
-        \fi
+  \global\colveccount#1
+  \begin{bmatrix}
+    \colvecnext
+  }
+  \def\colvecnext#1{
+    #1
+    \global\advance\colveccount-1
+    \ifnum\colveccount>0
+    \\
+    \expandafter\colvecnext
+    \else
+  \end{bmatrix}
+  \fi
 }
 
 \newcommand*\ninedet[9]{\begin{vmatrix}#1&#2&#3\\#4&#5&#6\\#7&#8&#9\end{vmatrix}}
 
 \begin{document}
 
+%\begin{comment}
+%\end{comment}
+
+\begin{flalign*}
+  a_b \equiv \frac{\partial a}{\partial b}
+\end{flalign*}
+
+%\begin{comment}
+
+\begin{flalign*}
+  x_t = \frac{\partial x}{\partial t} = u
+\end{flalign*}
+
+\begin{flalign*}
+  \mathbf{A} \equiv \colvec{5}{A_1}{A_2}{A_3}{A_4}{A_5}
+\end{flalign*}
+
+\begin{flalign*}
+  \mathbf{A} = \colvec{5}{\text{Continuity}}{\text{x-Momentum}}{\text{y-Momentum}}{\text{z-Momentum}}{\text{Energy}}
+\end{flalign*}
+
 \begin{flalign*}
   \frac{\partial \mathbf{U}}{\partial t} +
   \frac{\partial \mathbf{E}}{\partial x} +
   \frac{\partial \mathbf{F}}{\partial y} +
   \frac{\partial \mathbf{G}}{\partial z} = 0
+\end{flalign*}
+
+\begin{flalign*}
+  x &= r \cos\theta \\
+  y &= r \sin\theta \\
+  z &= z
+\end{flalign*}
+
+\begin{flalign*}
+  x &= \rho\sin\theta\cos\phi \\
+  y &= \rho\sin\theta\sin\phi \\
+  z &= \rho\cos\theta
+\end{flalign*}
+
+\begin{flalign*}
+  x &= x \\
+  y &= y_c \left\lbrace 1+\frac{\sinh [\tau(\bar{y} - B)]}{\sinh (\tau B)} \right\rbrace \\
+  z &= z \\
+\text{where}\quad B &= \frac{1}{2\tau}\ln\left[\frac{1+(\exp^\tau - 1)(y_c / h)}{1+(\exp^{-\tau}-1)(y_c / h)}\right]\quad 0 < \tau < \infty
+\end{flalign*}
+
+\begin{flalign*}
+  x &= x(\xi, \eta, \zeta) \\
+  y &= y(\xi, \eta, \zeta) \\
+  z &= z(\xi, \eta, \zeta)
 \end{flalign*}
 
 \begin{flalign*}
@@ -48,17 +96,17 @@
 \end{flalign*}
 
 \begin{flalign*}
-J &= \frac{\partial(\xi,\eta,\zeta)}{\partial(x,y,z)} = \ninedet{\xi_x}{\xi_y}{\xi_z}{\eta_x}{\eta_y}{\eta_z}{\zeta_x}{\zeta_y}{\zeta_z} \\
-&=
+  J &= \frac{\partial(\xi,\eta,\zeta)}{\partial(x,y,z)} = \ninedet{\xi_x}{\xi_y}{\xi_z}{\eta_x}{\eta_y}{\eta_z}{\zeta_x}{\zeta_y}{\zeta_z} \\
+    &=
   \xi_x(\eta_y \zeta_z - \eta_z \zeta_y) -
   \xi_y(\eta_x \zeta_z - \eta_z \zeta_x) +
   \xi_z(\eta_x \zeta_y - \eta_y \zeta_x)
 \end{flalign*}
 
 \begin{flalign*}
-\mathbf{E} &= \ilessv{E} \\
-\mathbf{F} &= \ilessv{F} \\
-\mathbf{G} &= \ilessv{G}
+  \mathbf{E} &= \ilessv{E} \\
+  \mathbf{F} &= \ilessv{F} \\
+  \mathbf{G} &= \ilessv{G}
 \end{flalign*}
 
 \begin{flalign*}
@@ -70,69 +118,90 @@ J &= \frac{\partial(\xi,\eta,\zeta)}{\partial(x,y,z)} = \ninedet{\xi_x}{\xi_y}{\
 
 
 \begin{flalign*}
-\mathbf{A} = \colvec{5}{\text{Continuity}}{\text{x-Momentum}}{\text{y-Momentum}}{\text{z-Momentum}}{\text{Energy}}
-\end{flalign*}
-
-\begin{flalign*}
   \mathbf{U} = \colvec{5}{\rho}{\rho u}{\rho v}{\rho w}{E_t}
 \end{flalign*}
 
 \begin{flalign*}
-E_t = \rho \left(e+\frac{u^2+v^2+w^2}{2}\right)
+  E_t = \rho \left(e+\frac{u^2+v^2+w^2}{2}\right)
 \end{flalign*}
 
 \begin{flalign*}
-p = \rho R T
+  p = \rho R T
 \end{flalign*}
 
 \begin{flalign*}
-(p + a \rho^2)\left(\frac{1}{\rho} - b\right) = R T
+  (p + a \rho^2)\left(\frac{1}{\rho} - b\right) = R T
 \end{flalign*}
 
 \begin{flalign*}
   \mathbf{E_i} = \colvec{5}{\rho u}{\rho u^2+p}{\rho uv}{\rho uw}{(E_t+p)u}
-\qquad
+  \qquad
   \mathbf{F_i} = \colvec{5}{\rho v}{\rho uv}{\rho v^2+p}{\rho vw}{(E_t+p)v}
-\qquad
+  \qquad
   \mathbf{G_i} = \colvec{5}{\rho w}{\rho uw}{\rho vw}{\rho w^2+p}{(E_t+p)w}
 \end{flalign*}
 
 \begin{flalign*}
-\mathbf{E_v} = \colvec{5}{0}{\tau_{xx}}{\tau_{xy}}{\tau_{xz}}{u\tau_{xx}+v\tau_{xy}+w\tau_{xz}-q_x}
+  \mathbf{E_v} = \colvec{5}{0}{\tau_{xx}}{\tau_{xy}}{\tau_{xz}}{u\tau_{xx}+v\tau_{xy}+w\tau_{xz}-q_x}
 \end{flalign*}
 
 \begin{flalign*}
-\mathbf{F_v} = \colvec{5}{0}{\tau_{xy}}{\tau_{yy}}{\tau_{yz}}{u\tau_{xy}+v\tau_{yy}+w\tau_{yz}-q_y}
+  \mathbf{F_v} = \colvec{5}{0}{\tau_{xy}}{\tau_{yy}}{\tau_{yz}}{u\tau_{xy}+v\tau_{yy}+w\tau_{yz}-q_y}
 \end{flalign*}
 
 \begin{flalign*}
-\mathbf{G_v} = \colvec{5}{0}{\tau_{xz}}{\tau_{yz}}{\tau_{zz}}{u\tau_{xz}+v\tau_{yz}+w\tau_{zz}-q_z}
+  \mathbf{G_v} = \colvec{5}{0}{\tau_{xz}}{\tau_{yz}}{\tau_{zz}}{u\tau_{xz}+v\tau_{yz}+w\tau_{zz}-q_z}
 \end{flalign*}
 
 \begin{flalign*}
-\tau_{xx} &= \frac{2}{3}\mu\left[2(\xi_xu_\xi + \eta_xu_\eta + \zeta_xu_\zeta) -
-  (\xi_yv_\xi + \eta_yv_\eta + \zeta_yv_\zeta) -
-  (\xi_zw)\xi + \eta_zw_\eta + \zeta_zw_\zeta)\right] \\
-\tau_{yy} &= \frac{2}{3}\mu\left[2(\xi_yv_\xi + \eta_yv_\eta + \zeta_yv_\zeta) -
-  (\xi_xu_\xi + \eta_xu_\eta + \zeta_zw_\zeta) -
-  (\xi_zw)\xi + \eta_zw_\eta + \zeta_zw_\zeta)\right] \\
-\tau_{zz} &= \frac{2}{3}\mu\left[2(\xi_zw_\xi + \eta_zw_\eta + \zeta_zw_\zeta) -
-  (\xi_xu_\xi + \eta_xu_\eta + \zeta_zw_\zeta) -
-  (\xi_yv_\xi + \eta_yv_\eta + \zeta_yv_\zeta)\right]
+  \tau_{xx} = \frac{2}{3}\mu\big[2 & (\xi_xu_\xi + \eta_xu_\eta + \zeta_xu_\zeta) \\
+                                 - & (\xi_yv_\xi + \eta_yv_\eta + \zeta_yv_\zeta) \\
+                                 - & (\xi_zw)\xi + \eta_zw_\eta + \zeta_zw_\zeta)\big] \\
+  \tau_{yy} = \frac{2}{3}\mu\big[2 & (\xi_yv_\xi + \eta_yv_\eta + \zeta_yv_\zeta) \\
+                                 - & (\xi_xu_\xi + \eta_xu_\eta + \zeta_zw_\zeta) \\
+                                 - & (\xi_zw)\xi + \eta_zw_\eta + \zeta_zw_\zeta)\big] \\
+  \tau_{zz} = \frac{2}{3}\mu\big[2 & (\xi_zw_\xi + \eta_zw_\eta + \zeta_zw_\zeta) \\
+                                 - & (\xi_xu_\xi + \eta_xu_\eta + \zeta_zw_\zeta) \\
+                                 - & (\xi_yv_\xi + \eta_yv_\eta + \zeta_yv_\zeta)\big]
 \end{flalign*}
 
 \begin{flalign*}
-\tau_{xy} &= \mu\left(\xi_yu_\xi + \eta_yu_\eta + \zeta_yu_\zeta + \xi_xv_\xi + \eta_xv_\eta + \zeta_xv_\zeta\right) \\
-\tau_{xz} &= \mu\left(\xi_zu_\xi + \eta_zu_\eta + \zeta_zu_\zeta + \xi_xw_\xi + \eta_xw_\eta + \zeta_xw_\zeta\right) \\
-\tau_{yz} &= \mu\left(\xi_zv_\xi + \eta_zv_\eta + \zeta_zv_\zeta + \xi_yw_\xi + \eta_yw_\eta + \zeta_yw_\zeta\right)
+  \tau_{xy} &= \mu\left(\xi_yu_\xi + \eta_yu_\eta + \zeta_yu_\zeta + \xi_xv_\xi + \eta_xv_\eta + \zeta_xv_\zeta\right) \\
+  \tau_{xz} &= \mu\left(\xi_zu_\xi + \eta_zu_\eta + \zeta_zu_\zeta + \xi_xw_\xi + \eta_xw_\eta + \zeta_xw_\zeta\right) \\
+  \tau_{yz} &= \mu\left(\xi_zv_\xi + \eta_zv_\eta + \zeta_zv_\zeta + \xi_yw_\xi + \eta_yw_\eta + \zeta_yw_\zeta\right)
 \end{flalign*}
 
 \begin{flalign*}
-q_x &= -k(\xi_xT_\xi + \eta_xT_\eta + \zeta_xT_\zeta) \\
-q_y &= -k(\xi_yT_\xi + \eta_yT_\eta + \zeta_yT_\zeta) \\
-q_z &= -k(\xi_zT_\xi + \eta_zT_\eta + \zeta_zT_\zeta)
+  q_x &= -k(\xi_xT_\xi + \eta_xT_\eta + \zeta_xT_\zeta) + \rho \sum_{i=1}^n c_i h_i U_{x,i} \\
+  q_y &= -k(\xi_yT_\xi + \eta_yT_\eta + \zeta_yT_\zeta) + \rho \sum_{i=1}^n c_i h_i U_{y,i} \\
+  q_z &= -k(\xi_zT_\xi + \eta_zT_\eta + \zeta_zT_\zeta) + \rho \sum_{i=1}^n c_i h_i U_{z,i}
 \end{flalign*}
 
+\begin{flalign*}
+  & u, v, w, p, T \\
+  & u, v, w, p, T \text{(and species concentration)}
+\end{flalign*}
 
+\begin{flalign*}
+  \sum_{i=1}^{\text{points}} \left\lbrace
+  \frac{\partial \mathbf{U}_1}{\partial t} +
+  \frac{\partial \mathbf{E}_1}{\partial \xi} +
+  \frac{\partial \mathbf{F}_1}{\partial \eta} +
+  \frac{\partial \mathbf{G}_1}{\partial \zeta} = 0
+  \right\rbrace
+\end{flalign*}
+
+\begin{flalign*}
+  \bigintss_0^T \left[
+    \sum_{i=1}^{\text{points}} \left\lbrace
+    \frac{\partial \mathbf{U}_1}{\partial t} +
+    \frac{\partial \mathbf{E}_1}{\partial \xi} +
+    \frac{\partial \mathbf{F}_1}{\partial \eta} +
+    \frac{\partial \mathbf{G}_1}{\partial \zeta} = 0
+    \right\rbrace
+  \right]
+\end{flalign*}
+
+%\end{comment}
 
 \end{document}

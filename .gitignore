@@ -1,2 +1,4 @@
 latex/*.log
 latex/*.aux
+.DS_Store
+.bundle
