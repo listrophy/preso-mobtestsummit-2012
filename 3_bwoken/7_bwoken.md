@@ -81,4 +81,9 @@ class="blue">Building................................
 ## Bradley Grzesiak
 ### @listrophy
 ### brad@bendyworks.com
-### http://bendyworks.github.com/bwoken
+### bendyworks.github.com/bwoken
+### Slides: bw.cm/mobilesummit
+<div class="myfooter">
+<img alt="cc-by-2.0" src="image/3_bwoken/cc.png"/>
+This work is licensed under a Creative Commons Attribution 2.0 Generic License.
+</div>
