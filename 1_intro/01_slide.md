@@ -3,7 +3,7 @@
 ## Bradley Grzesiak
 ### (github|twitter).com/listrophy
 ### Bendyworks, Inc.
-### mobilesummit-bwoken.herokuapp.com
+### bw.cm/mobilesummit
 
 .notes Why bwoken, not how. Before we dive into that
 
