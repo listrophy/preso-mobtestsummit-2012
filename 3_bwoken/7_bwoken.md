@@ -2,7 +2,14 @@
 # bwoken
 ## github : bendyworks/bwoken
 
-.notes found on github, as simple to use as issuing 'rake'
+.notes found on github
+
+!SLIDE
+First Automation [library] I've wanted to use, as [it] doesn't require hacking my Objective C project to pieces to make it work.
+
+—independent iOS developer
+
+.notes as simple to use as issuing 'rake'
 
 !SLIDE terminal
 <pre>
