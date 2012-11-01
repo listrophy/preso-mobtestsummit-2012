@@ -61,10 +61,10 @@ class="blue">Building................................
 !SLIDE bullets incremental
 # Bwoken Features
 * CoffeeScript
-* Command-Line
-* Correct Exit Status
+* Command-Line (w/ Correct Exit Status)
 * Filtered/Colored Output
 * Compatible with Instruments.app
+* Write tests outside Instruments.app
 * Device or Simulator
 
 .notes what *is* bwoken?
